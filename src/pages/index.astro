@@ -2,52 +2,76 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
----
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
+const venues = [
+	{ name: 'Grand Auditorium', image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80', stats: ['Capacity: 1,500 Guests', 'Dining Capacity: 1,200 Guests'], features: ['Fully Air-Conditioned', 'Premium Stage', 'Modern Lighting', 'Professional Sound System', 'Spacious Bridal & VIP Rooms'] },
+	{ name: 'Hall One', image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=80', stats: ['Capacity: 750 Guests', 'Dining: 200–300 Guests'], features: ['Fully Air-Conditioned', 'Elegant Interior', 'Private guest flow', 'Celebration-ready ambience'] },
+	{ name: 'Hall Two', image: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=80', stats: ['Capacity: 750 Guests', 'Dining: 200–300 Guests'], features: ['Fully Air-Conditioned', 'Ideal for weddings', 'Receptions & meetings', 'Intimate celebrations'] },
+];
+const amenities = ['Fully Air-Conditioned', 'High-Speed Wi-Fi', 'LED Stage Lighting', 'Professional Audio System', 'Large Parking', 'Dining Hall', 'Bridal Room', 'VIP Lounge', 'Generator Backup', 'CCTV Security', 'Wheelchair Accessibility', '24/7 Power Backup'];
+const gallery = [
+	['Wedding Events', 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80'],
+	['Reception Decorations', 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=80'],
+	['Corporate Conferences', 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80'],
+	['Stage Setup', 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=900&q=80'],
+	['Dining Area', 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80'],
+	['Hall Interiors', 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80'],
+	['Exterior View', 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80'],
+	['Night Lighting', 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=80'],
+	['Parking Area', 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=900&q=80'],
+];
+const reasons = ['Elegant Architecture', 'Spacious Luxury Interiors', 'Fully Air-Conditioned Halls', 'Large Parking Area', 'Premium Dining Facilities', 'Modern Stage & Lighting', 'Professional Sound System', 'Wedding Ready', 'Corporate Event Ready', 'Exhibition Friendly', 'Experienced Event Support Team', 'Clean & Well Maintained Environment', 'Easy Accessibility'];
+---
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-<script src="https://hallivo.com/embed.js" async is:inline></script>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80" />
+		<meta name="keywords" content="Wedding Hall, Convention Center, Auditorium, Marriage Hall, Reception Venue, Event Hall, Conference Hall, Exhibition Venue, Luxury Auditorium, Kerala Convention Center" />
+		<script src="https://hallivo.com/embed.js" async is:inline></script>
 	</head>
 	<body>
+		<div class="loader" aria-hidden="true"><span></span></div>
 		<Header />
 		<main>
-	<button data-hallivo-slug="sjjvenue">Book Now</button>
+			<section class="hero" id="home">
+				<video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=80">
+					<source src="https://cdn.coverr.co/videos/coverr-wedding-tables-5961/1080p.mp4" type="video/mp4" />
+				</video>
+				<div class="hero-overlay"></div><div class="orb orb-one"></div><div class="orb orb-two"></div>
+				<div class="hero-content reveal">
+					<p class="eyebrow">Kerala’s five-star event destination</p>
+					<h1>Olive International</h1>
+					<h2>The Perfect Venue for Unforgettable Gatherings</h2>
+					<p>Welcome to <strong>Olive International Convention Center</strong>, a premier destination for weddings, receptions, exhibitions, conferences, cultural events, and corporate gatherings. Designed with elegance and comfort in mind, our exceptional venues provide the perfect setting for celebrations of every size.</p>
+					<div class="actions"><button data-hallivo-slug="sjjvenue" class="btn primary">Book a Venue</button><a class="btn ghost" href="#contact">Schedule a Visit</a></div>
+				</div>
+			</section>
 
-	<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="section about" id="about"><div class="section-copy reveal"><p class="eyebrow">About Olive</p><h2>Experience a venue where elegance meets excellence.</h2><p>Olive International Convention Center offers beautifully designed event spaces, premium amenities, and exceptional hospitality to make every celebration memorable. From grand weddings to corporate conferences, every event is delivered with perfection.</p></div><div class="stats glass reveal"><span><strong data-count="3000">3,000+</strong>Guest capacity</span><span><strong data-count="12">12</strong>Premium amenities</span><span><strong data-count="24">24/7</strong>Power support</span></div></section>
+
+			<section class="section" id="venues"><div class="section-heading reveal"><p class="eyebrow">Our Venues</p><h2>Choose the space that matches your occasion.</h2></div><div class="venue-grid">{venues.map((venue) => <article class="venue-card reveal"><img src={venue.image} alt={`${venue.name} at Olive International Convention Center`} loading="lazy" /><div><h3>{venue.name}</h3><div class="pill-row">{venue.stats.map((stat) => <span>{stat}</span>)}</div><ul>{venue.features.map((feature) => <li>{feature}</li>)}</ul><a href="#booking">Explore availability →</a></div></article>)}</div></section>
+
+			<section class="section why" id="why"><div class="section-heading reveal"><p class="eyebrow">Why Choose Olive International</p><h2>Every detail crafted for refined celebrations.</h2></div><div class="reason-grid">{reasons.map((reason) => <div class="reason reveal">✦ {reason}</div>)}</div></section>
+
+			<section class="section" id="gallery"><div class="section-heading reveal"><p class="eyebrow">Gallery</p><h2>Cinematic spaces, beautifully prepared.</h2></div><div class="masonry">{gallery.map(([label, image]) => <a class="gallery-item reveal" href={image}><img src={image} alt={label} loading="lazy" /><span>{label}</span></a>)}</div></section>
+
+			<section class="section" id="amenities"><div class="section-heading reveal"><p class="eyebrow">Amenities</p><h2>Premium comforts for hosts and guests.</h2></div><div class="amenity-grid">{amenities.map((amenity) => <div class="amenity reveal"><span>✓</span>{amenity}</div>)}</div></section>
+
+			<section class="section testimonials" id="testimonials"><div class="section-heading reveal"><p class="eyebrow">Testimonials</p><h2>Trusted by families, brands, and communities.</h2></div><div class="testimonial-grid">{['The ambience felt royal, the stage looked spectacular, and every guest complimented the hospitality.', 'Our annual conference ran flawlessly. The sound, lighting, dining, and support team were exceptional.', 'A perfect wedding-ready venue with elegant interiors, easy parking, and beautiful photo corners.'].map((quote, i) => <figure class="testimonial reveal"><img src={`https://i.pravatar.cc/160?img=${i + 32}`} alt="Customer portrait" loading="lazy" /><figcaption><div class="stars">★★★★★</div><blockquote>{quote}</blockquote><strong>{['Anjana & Rahul', 'Thomas Mathew', 'Nisha Varghese'][i]}</strong></figcaption></figure>)}</div></section>
+
+			<section class="booking section" id="booking"><div class="booking-card glass reveal"><p class="eyebrow">Book Olive International</p><h2>Reserve Your Perfect Venue Today</h2><p>Tell us your event date, guest count, and preferred hall. Our event support team will help you plan a seamless, memorable gathering.</p><div class="actions"><a class="btn primary" href="#contact">Check Availability</a><button data-hallivo-slug="sjjvenue" class="btn ghost">Request Booking</button></div></div></section>
+
+			<section class="section contact" id="contact"><div class="section-heading reveal"><p class="eyebrow">Contact</p><h2>Schedule a visit and experience Olive in person.</h2></div><div class="contact-grid"><div class="contact-card reveal"><p><strong>Address</strong><br />Olive International Convention Center, Kerala, India</p><p><strong>Phone</strong><br /><a href="tel:+919876543210">+91 98765 43210</a></p><p><strong>WhatsApp</strong><br /><a href="https://wa.me/919876543210">Message us instantly</a></p><p><strong>Email</strong><br /><a href="mailto:events@oliveinternational.com">events@oliveinternational.com</a></p><p><strong>Business Hours</strong><br />Monday – Sunday, 9:00 AM – 8:00 PM</p></div><iframe title="Google Maps location for Olive International Convention Center" src="https://www.google.com/maps?q=Kerala%20Convention%20Center&output=embed" loading="lazy"></iframe></div></section>
 		</main>
+		<a class="whatsapp" href="https://wa.me/919876543210" aria-label="Chat on WhatsApp">☘</a><button class="top" data-top aria-label="Back to top">↑</button>
 		<Footer />
+		<div class="lightbox" data-lightbox><button aria-label="Close gallery image">×</button><img alt="Expanded gallery image" /></div>
+		<script is:inline>
+			const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('visible')), { threshold: 0.16 });
+			document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+			const topButton = document.querySelector('[data-top]'); window.addEventListener('scroll', () => topButton.classList.toggle('show', scrollY > 700)); topButton.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+			const lightbox = document.querySelector('[data-lightbox]'); document.querySelectorAll('.gallery-item').forEach((item) => item.addEventListener('click', (event) => { event.preventDefault(); lightbox.querySelector('img').src = item.href; lightbox.classList.add('open'); })); lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+		</script>
 	</body>
 </html>
